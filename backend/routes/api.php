@@ -13,7 +13,7 @@ use App\Http\Controllers\Api\Estudiantes\AlumnoController;
 */
 
 // Autenticación pública
-Route::post('/auth/login', [AuthController::class, 'login']);
+Route::post('/auth/login', [AuthController::class, 'login'])->middleware('sistema.activo');
 
 // Rutas protegidas
 Route::middleware(['auth:sanctum', \App\Http\Middleware\CheckActiveSession::class, \App\Http\Middleware\AuditActivity::class])->group(function () {
